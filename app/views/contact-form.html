@@ -1,0 +1,37 @@
+<form name="contactForm" class="form-inline" ng-submit="contactForm.$valid && contactCtrl.addContact()" novalidate>
+  <div class="col-xs-6 form-group">
+    <label for="firstNameInput" class="sr-only">First Name</label>
+    <input id="firstName" type="text" class="form-control" ng-model="contactCtrl.contact.first_name" required placeholder="First name" />
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="lastNameInput" class="sr-only">Last Name</label>
+    <input id="lastName" type="text" class="form-control" ng-model="contactCtrl.contact.last_name" required placeholder="Last name"/>
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="phoneInput" class="sr-only">Phone</label>
+    <input id="phoneInput" type="tel" class="form-control" ng-model="contactCtrl.contact.phone" required placeholder="Telephone"/>
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="phoneInput" class="sr-only">Email</label>
+    <input id="phoneInput" type="email" class="form-control" ng-model="contactCtrl.contact.email" required placeholder="Email" />
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="addressInput" class="sr-only">Address</label>
+    <input id="addressInput" type="text" class="form-control" ng-model="contactCtrl.contact.address" required placeholder="Street address" />
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="cityInput" class="sr-only">City</label>
+    <input id="cityInput" type="text" class="form-control" ng-model="contactCtrl.contact.city" required placeholder="City" />
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="stateInput" class="sr-only">State</label>
+    <input id="stateInput" type="text" class="form-control" ng-model="contactCtrl.contact.state" required placeholder="State"/>
+  </div>
+  <div class="col-xs-6 form-group">
+    <label for="zipInput" class="sr-only">Zip</label>
+    <input id="zipInput" type="text" class="form-control" ng-model="contactCtrl.contact.zip" required placeholder="Zip"/>
+  </div>
+  <div class="form-group">
+    <input type="submit" value="Add" class="btn btn-success form-control" ng-class="{'btn-danger disabled':!contactForm.$valid}"/>
+  </div>
+</form>

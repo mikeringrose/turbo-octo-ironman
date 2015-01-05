@@ -1,0 +1,29 @@
+<div ng-controller="ContactController as contactCtrl">
+
+  <div class="well">
+    <h3>New Contact</h3>
+    <contact-form></contact-form>
+  </div>
+
+  <div>
+    <form class="form-inline">
+      <input type="search" ng-model="contactCtrl.query.name" class="form-control" placeholder="Search by name" />
+      <select class="form-control" ng-model="contactCtrl.query.state" ng-options="s as s for s in ['AK','AL','AR','AZ','CA','CO','CT','DC','DE','FL','GA','GU','HI','IA','ID', 'IL','IN','KS','KY','LA','MA','MD','ME','MH','MI','MN','MO','MS','MT','NC','ND','NE','NH','NJ','NM','NV','NY', 'OH','OK','OR','PA','PR','PW','RI','SC','SD','TN','TX','UT','VA','VI','VT','WA','WI','WV','WY']">
+        <option value="">-- State --</option>
+      </select>
+      <select class="form-control" ng-model="contactCtrl.pageSize" >
+        <option selected value="10">10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+      </select>
+    </form>
+    <ul class="contact-list list-group">
+      <li class="list-group-item" ng-repeat="contact in contactCtrl.contacts | filter:contactCtrl.searchBy | startAt:contactCtrl.currentPage*contactCtrl.pageSize | limitTo:contactCtrl.pageSize" ng-click="contactCtrl.editContact(contact)" contact-details></li>
+    </ul>
+    <ul class="pager">
+      <li ng-class="{disabled:!contactCtrl.currentPage}" ng-click="contactCtrl.previousPage()"><a href>Previous</a></li>
+      <li ng-class="{disabled:contactCtrl.isLastPage()}"><a href ng-click="contactCtrl.nextPage()">Next</a></li>
+    </ul>
+  </div>
+
+</div>
